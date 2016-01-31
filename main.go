@@ -12,6 +12,10 @@ import (
 
 )
 
+const (
+	SLACK_CHANNEL = "programming"
+)
+
 func main() {
 
 	ts := oauth2.StaticTokenSource(
@@ -21,8 +25,6 @@ func main() {
 
 	githubClient := github.NewClient(tc)
 	release, err := githubClient.Repositories.GetLatestRelease("FRC1360","Stronghold2016")
-
-
 
 	if(err != nil) {
 		panic(err)
@@ -43,7 +45,6 @@ func main() {
 	}
 
 }
-
 
 func downloadFromUrl(url string)(downloaded bool){
 	tokens := strings.Split(url, "/")
